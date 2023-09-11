@@ -1,0 +1,123 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>tarea2</groupId>
+  <artifactId>tarea2</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <dependencies> 
+<!--============dependencias de la Tarea1=====================!-->
+	<dependency>
+		<groupId>PApp</groupId>
+  		<artifactId>PApp</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+	
+<!-- dada la info de PApp el comando para instalar, caso cree una carpeta compartida entre windows y wsl  me situe ahi y tire el comando asi:-->
+<!-- mvn install:install-file -Dfile=tarea1.jar -DgroupId=PApp -DartifactId=PApp -Dversion=0.0.1-SNAPSHOT -Dpackaging=jar -->
+<!--==========================================================!-->	
+	<dependency>
+	    <groupId>javax.persistence</groupId>
+	    <artifactId>javax.persistence-api</artifactId>
+	    <version>2.2</version>
+	</dependency>
+
+    <!-- jcalendar -->
+    <dependency>
+      <groupId>com.toedter</groupId>
+      <artifactId>jcalendar</artifactId>
+      <version>1.4</version> 
+    </dependency>
+    <!-- postgresql-->
+	<dependency>
+	    <groupId>org.postgresql</groupId>
+	    <artifactId>postgresql</artifactId>
+	    <version>42.6.0</version>
+	</dependency>
+   
+	<!-- Hibernate -->
+    <dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>5.4.21.Final</version>
+		</dependency>
+  
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>5.4.21.Final</version>
+    </dependency> 
+     
+<!--============Nuevas dependencias para la Tarea 2=====================!-->	  
+	  
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-annotations-api</artifactId>
+      <version>9.0.80</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-storeconfig</artifactId>
+      <version>9.0.80</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-tribes</artifactId>
+      <version>9.0.80</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-el-api</artifactId>
+      <version>9.0.80</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-jaspic-api</artifactId>
+      <version>9.0.80</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-jsp-api</artifactId>
+      <version>9.0.80</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-servlet-api</artifactId>
+      <version>9.0.80</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-api</artifactId>
+      <version>9.0.80</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-i18n-es</artifactId>
+      <version>9.0.80</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-jni</artifactId>
+      <version>9.0.80</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-util-scan</artifactId>
+      <version>9.0.80</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <release>20</release>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
