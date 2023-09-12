@@ -5,14 +5,16 @@
 <head>
     <title>EntrenamosUy</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  
+    <link rel="stylesheet" type="text/css" href="./assets/styles/index.css">
 </head>
 <body>
     <header>
-        <h1>EntrenamosUy</h1>
         <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
   <div class="container-fluid">
-   <!--   <a class="navbar-brand" href="#">Navbar</a>   -->
+    <a class="navbar-brand" href="#">
+      <img src="./assets/images/logo.png" width="40" alt="logo">
+    </a>
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -49,6 +51,12 @@
                             <a class="dropdown-item" href="ModificarUsuario.jsp">Modificar Usuario</a>
                           
                         </div>
+                    </li>
+                    
+                    <li>
+                      <a class="user-icon">
+                        <img src="./assets/images/profile-icon.png" width="40">
+                      </a>
                     </li>
       </ul>
       <ul></ul>

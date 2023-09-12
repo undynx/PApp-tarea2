@@ -1,0 +1,7 @@
+/target/*
+.settings/
+.classpath
+.project
+proyecto1.jar
+pom.properties*
+/target/

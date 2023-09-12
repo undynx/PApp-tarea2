@@ -6,11 +6,10 @@
   <packaging>war</packaging>
   <dependencies> 
 <!--============dependencias de la Tarea1=====================!-->
-
-	<dependency> 
-		<groupId>PApp</groupId> 
-		<artifactId>PApp</artifactId> 
-		<version>0.0.1-SNAPSHOT</version> 
+	<dependency>
+		<groupId>PApp</groupId>
+  		<artifactId>PApp</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
 	</dependency>
 	
 <!-- dada la info de PApp el comando para instalar, caso cree una carpeta compartida entre windows y wsl  me situe ahi y tire el comando asi:-->
