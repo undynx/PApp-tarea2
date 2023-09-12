@@ -1,6 +1,7 @@
  <footer>
         <p>&copy; 2023 EntrenamosUy</p>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
         <div class="redes-sociales">
        
            <!--  <a href="#"><img src="facebook.png" alt="Facebook"></a>
