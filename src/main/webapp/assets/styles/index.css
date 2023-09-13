@@ -1,3 +1,9 @@
+.body {
+  position: relative;
+  min-height: 100vh;
+  background-color: #dee2e6;
+}
+
 .user-icon {
   position: absolute;
   right: 10px;
@@ -23,4 +29,20 @@
 
 .banner {
   width: 100%;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.pageContainer {
+  padding-bottom: 55px;
+}
+
+.profileSvg {
+  color: #9E9E9E;
+  width: 35px;
+  height: 35px;
 }
