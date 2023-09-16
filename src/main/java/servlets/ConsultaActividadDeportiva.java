@@ -14,6 +14,7 @@ import interfaces.IActividadDeportiva;
 
 import datatypes.DtClase;
 import datatypes.DtActividad;
+import excepciones.ExisteActividadDepException; // Importa la excepció
 
 /**
  * Servlet implementation class ConsultaActividadDeportiva
@@ -48,6 +49,9 @@ public class ConsultaActividadDeportiva extends HttpServlet {
 	    
 	    // Obtener la Actividad deportiva DADA
 	    String nombreActividad = request.getParameter("unaActividad");
+	   
+	    try {
+            // Intenta realizar la operación
 	    //SI EXISTE
 	    if(iAD.existeActividad(nombreActividad)) {   	 
 	    	DtActividad dtActEncontrada = iAD.getDtActividad(nombreActividad);
@@ -66,8 +70,14 @@ public class ConsultaActividadDeportiva extends HttpServlet {
 
 	    	// Reenviar la solicitud a la página JSP
 		    request.getRequestDispatcher("/ResultadoConsultaActividad.jsp").forward(request, response);
+	    }else {
+	    	 
+	    	throw new ExisteActividadDepException("La actividad no existe");
 	    }
 	    
+	}catch (ExisteActividadDepException e) {
+        // Manejar la excepción aquí, por ejemplo, redirigiendo a una página de error
+        request.getRequestDispatcher("/Error.jsp").forward(request, response);
+    	}
 	}
-
 }
