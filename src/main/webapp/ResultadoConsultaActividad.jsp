@@ -51,24 +51,31 @@
     <div class="container mt-5">
     	<h1>Clases Asociadas</h1>
     	<table class="table table-sm table-dark">
-  		<thead>
+    <thead>
         <tr>
             <th>Nombre de Clase</th>
             <th>URL</th>
         </tr>
-        <thead>
+    </thead>
+    <tbody>
         <%
             List<DtClase> clases = (List<DtClase>) request.getAttribute("reqClases");
             for (DtClase clase : clases) {
         %>
         <tr>
-            <td><%= clase.getNombre() %></td>
+            <td>
+            <!-- pongo como link el nombre de la clase dirigido a consutlta dicatdo clase pasando el nonbre como parametro para utilizarlo despues -->
+                <a href="ConsultaDictadoClases.jsp?nombreClase=<%= clase.getNombre() %>">
+                    <%= clase.getNombre() %>
+                </a>
+            </td>
             <td><%= clase.getUrl() %></td>
         </tr>
         <%
             }
         %>
-    </table>
+    </tbody>
+</table>
 
     </div>
     <!-- Incluye el pie de página desde footer.jsp -->
