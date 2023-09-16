@@ -1,7 +1,8 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.Date;
+
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import interfaces.Fabrica;
 import interfaces.IActividadDeportiva;
 
-
+import datatypes.DtClase;
 import datatypes.DtActividad;
 
 /**
@@ -41,24 +42,28 @@ public class ConsultaActividadDeportiva extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Fabrica fabrica = Fabrica.getInstancia();
-	    IActividadDeportiva iAD = fabrica.getIActividadDeportiva();
+		
+		Fabrica fabric = Fabrica.getInstancia();
+	    IActividadDeportiva iAD = fabric.getIActividadDeportiva();
 	    
 	    // Obtener la Actividad deportiva DADA
 	    String nombreActividad = request.getParameter("unaActividad");
 	    //SI EXISTE
 	    if(iAD.existeActividad(nombreActividad)) {   	 
 	    	DtActividad dtActEncontrada = iAD.getDtActividad(nombreActividad);
-	    	//String nom = actEncontrada.getNombre();
-	    	//String des = actEncontrada.getDescripcion();
-	       //int duracionM=actEncontrada.getDuracionMinutos();
-	       // double costo =actEncontrada.getCosto();
-	       // Date fRegistro =actEncontrada.getFechaRegistro();
-	        
-	    	// Guardar la actividad en un atributo de solicitud
+	    	
+	    	
+
+	    	// Guardar contenido del DtActividad en un atributo de solicitud
 	      
 	    	request.setAttribute("reqActividad",dtActEncontrada);
-	       
+	    	
+	    	//las clases asociadas a la actividad obtenida
+	    	List<DtClase> unDtClases=dtActEncontrada.getClases();
+	    	
+	    	// Guardar la lista de Dtclases procesada en un atributo de solicitud
+	        request.setAttribute("reqClases", unDtClases);
+
 	    	// Reenviar la solicitud a la página JSP
 		    request.getRequestDispatcher("/ResultadoConsultaActividad.jsp").forward(request, response);
 	    }

@@ -8,6 +8,11 @@
 <body data-bs-theme="dark">
 <!-- Incluye el encabezado desde header.jsp -->
     <%@ include file="header.jsp" %>
+    
+    <%@ page import="java.util.List" %>
+	<%@ page import="datatypes.DtClase" %>
+	
+	
      <!-- Contenido de la página principal -->
       <div class="container mt-5">
 	    <h1>Resultados de la Consulta</h1>
@@ -40,6 +45,30 @@
 		        <td>${reqActividad.fechaRegistro}</td>
 		    </tr>
 		</table>
+	
+    </div>
+    
+    <div class="container mt-5">
+    	<h1>Clases Asociadas</h1>
+    	<table class="table table-sm table-dark">
+  		<thead>
+        <tr>
+            <th>Nombre de Clase</th>
+            <th>URL</th>
+        </tr>
+        <thead>
+        <%
+            List<DtClase> clases = (List<DtClase>) request.getAttribute("reqClases");
+            for (DtClase clase : clases) {
+        %>
+        <tr>
+            <td><%= clase.getNombre() %></td>
+            <td><%= clase.getUrl() %></td>
+        </tr>
+        <%
+            }
+        %>
+    </table>
 
     </div>
     <!-- Incluye el pie de página desde footer.jsp -->
