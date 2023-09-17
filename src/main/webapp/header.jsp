@@ -1,5 +1,11 @@
 <!-- @format -->
 
+<!-- Este caso de uso permite a un visitante del sitio iniciar sesión mediante
+el ingreso de su nickname y contraseña. El Sistema verifica que los
+datos sean válidos e inicia la sesión para el Profesor/Socio. En caso de
+que no sean válidos, se mostrará una advertencia al Visitante para que
+pueda reingresar sus datos o cancelar el inicio. -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -110,7 +116,7 @@ pageEncoding="UTF-8"%>
 							</li>
 
 							<li>
-								<a class="user-icon">
+								<a class="user-icon" href="/index.jsp">
 									<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-circle profileSvg"
 										viewBox="0 0 16 16">
 										<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -134,47 +140,35 @@ pageEncoding="UTF-8"%>
 								>
 									Iniciar Sesión
 								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<form class="px-4 py-3">
+								<div class="dropdown-menu navBar" aria-labelledby="navbarDropdown">
+									<form class="px-4 py-3" action="InicioSesion" method="post">
 										<div class="mb-3">
-											<label for="nickname" class="form-label">Nickname</label>
+											<label class="form-label">Nickname</label>
 											<input
 												type="text"
 												class="form-control"
-												id="nickname"
+												id="unNickname"
+												name="unNickname"
 												placeholder="Tu nickname"
 											/>
 										</div>
 										<div class="mb-3">
-											<label for="password" class="form-label"
+											<label class="form-label"
 												>Contraseña</label
 											>
 											<input
-												type="password"
+												type="text"
 												class="form-control"
-												id="password"
+												id="unaPassword"
+												name="unaPassword"
 												placeholder="Contraseña"
 											/>
 										</div>
-										<div class="mb-3">
-											<div class="form-check">
-												<input
-													type="checkbox"
-													class="form-check-input"
-													id="dropdownCheck"
-												/>
-												<label class="form-check-label" for="dropdownCheck">
-													Recordarme
-												</label>
-											</div>
-										</div>
-										<button type="submit" class="btn btn-primary">
-											Iniciar Sesión
-										</button>
+										<input type="submit" class="btn btn-primary" value="Iniciar sesion">
 									</form>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#"
-										>¿Olvidaste tu contraseña?</a
+									<a class="dropdown-item" href="AltaUsuario.jsp"
+										>¿Aún no tienes cuenta? Registrarme</a
 									>
 								</div>
 							</li>
