@@ -50,10 +50,10 @@ public class InicioSesion extends HttpServlet {
 		try {
 			if(iUsuario.existeUsuario(nicknameUser)) {
 				if(iUsuario.esContrasena(nicknameUser, contrasenaUser)) {
-					boolean esProfe = iUsuario.esProfesor(nicknameUser);
+					boolean esSocio = iUsuario.esSocio(nicknameUser);
 					String tipo;
 					
-					if(esProfe) {
+					if(!esSocio) {
 						tipo = "Profesor";
 					} else {
 						tipo = "Socio";
