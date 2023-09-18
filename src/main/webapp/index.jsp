@@ -35,7 +35,7 @@ pageEncoding="UTF-8" %>
 						>
 					</div>
 				</div>
-				
+
 				<div class="card" style="width: 300px">
 					<img src="./assets/images/card-image3.jpg" class="card-img-top" />
 					<div class="card-body">
@@ -44,7 +44,11 @@ pageEncoding="UTF-8" %>
 							La ganadora de los CrossFit Games 2023 cuenta que su fortaleza
 							para ganar los CrossFit Games 2023 fu...
 						</p>
-						<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" class="btn btn-primary">Leer más</a>
+						<a
+							href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+							class="btn btn-primary"
+							>Leer más</a
+						>
 					</div>
 				</div>
 
@@ -63,7 +67,6 @@ pageEncoding="UTF-8" %>
 						>
 					</div>
 				</div>
-				
 			</div>
 		</div>
 
