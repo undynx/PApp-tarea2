@@ -2,7 +2,6 @@ package servlets;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,20 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import datatypes.DtActividad;
+import datatypes.DtClase;
 import interfaces.Fabrica;
-import interfaces.IActividadDeportiva;
+import interfaces.IClase;
 
 /**
- * Servlet implementation class RankingActividades
+ * Servlet implementation class RankingDictadoClases
  */
-@WebServlet("/RankingActividades")
-public class RankingActividades extends HttpServlet {
+@WebServlet("/RankingDictadoClases")
+public class RankingDictadoClases extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RankingActividades() {
+    public RankingDictadoClases() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,33 +34,32 @@ public class RankingActividades extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-			
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		// TODO Auto-generated method stub
 		Fabrica fabric = Fabrica.getInstancia();
-	    IActividadDeportiva iAD = fabric.getIActividadDeportiva();
-	    List<DtActividad> actividadesOrdenadas;
-	    actividadesOrdenadas = iAD.getRankingActividades();
+	    IClase iAD = fabric.getIClase();
+	    List<DtClase> claseOrdenadas;
+	    claseOrdenadas = iAD.getRankingClases();
 		try {
 			
-			if(actividadesOrdenadas != null) {
+			if(claseOrdenadas != null) {
 			// Guardar la lista de Dtclases procesada en un atributo de solicitud
-	        request.setAttribute("reqClasesOrdenadas", actividadesOrdenadas); 
+	        request.setAttribute("reqClasesOrdenadas", claseOrdenadas); 
 			
 	        // Reenviar la solicitud a la página JSP
-		    request.getRequestDispatcher("/ResultadoRankingActividades.jsp").forward(request, response);
+		    request.getRequestDispatcher("/ResultadoRankingClases.jsp").forward(request, response);
 			}
 		
 		}catch(Exception e){
 	        // Manejar la excepción aquí, por ejemplo, redirigiendo a una página de error
 	        request.getRequestDispatcher("/Error.jsp").forward(request, response);
 	    	}   
-
 	}
-//doGet(request, response);
+
 }
