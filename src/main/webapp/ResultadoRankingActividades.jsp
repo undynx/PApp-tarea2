@@ -20,6 +20,7 @@
      <table class="table table-sm table-dark">
   		<thead>
         <tr>
+         	<th>Cantidad Inscriptos</th>
             <th>Nombre</th>
             <th>Descripción</th>        
             <th>Costo</th>
@@ -31,6 +32,7 @@
             for (DtActividad actividad : actividades) {
         %>
         <tr>
+        	<td><%= actividad.getCantidadClases() %></td>
             <td><%= actividad.getNombre() %></td>
             <td><%= actividad.getDescripcion() %></td>
             <td><%= actividad.getCosto() %></td>
