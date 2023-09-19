@@ -65,11 +65,13 @@ public class ConsultaUsuario extends HttpServlet {
 		    	if (iUs.esSocio(nickname)) {
 			    	DtSocio dtSoc = iUs.getDtSocio(nickname);
 			    	request.setAttribute("usuario", dtSoc);
+			    	 request.getRequestDispatcher("/ConsultaUsuarios.jsp").forward(request, response);
 			    	/*request.setAttribute("esSocio", true);
 			    	request.setAttribute("esProfesor", false);*/
 			    } else {
 			    	DtProfesor dtProf = iUs.getDtProfesor(nickname);
 			    	request.setAttribute("usuario", dtProf);
+			    	request.getRequestDispatcher("/ConsultaUsuarios.jsp").forward(request, response);
 			    	/*request.setAttribute("esSocio", false);
 			    	request.setAttribute("esProfesor", true);*/
 			    }

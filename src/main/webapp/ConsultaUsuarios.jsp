@@ -9,33 +9,23 @@
 <body>
  <!-- Incluye el encabezado desde header.jsp -->
     <%@ include file="header.jsp" %>
-
+    
+    
+		<form action="ConsultaUsuario" method="post">
+        
+        <input type="submit" value="ver usuario">
+    </form>
+    
+    
+    
+    
     <!-- Contenido de la página principal -->
     <div class="container mt-4">
         <p>Consulta de Usuarios</p>
     </div>
     
     <div class="container-fluid">
-		<div class="row">
-			<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-			    <p>DIV 1</p>
-			    <button class="btn btn-outline-success btn-lg">BotonlineaGrande</button>
-			</div>
-			<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-			    <p>DIV 2</p>
-			    <button class="btn btn-success btn-sm">BotonverdePekeno</button>
-			
-			</div>
-			<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-			    <p>DIV 2</p>
-			    <button class="btn btn-success btn-sm">Boton<button class="btn btn-success">Boton en Boton</button></button>
-			
-			</div>
-			<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-			    <p>DIV 3</p>
-			    <button class="btn btn-link">NobootonTamanormal</button>
-			</div>
-		</div>			
+		
 		<% String nick = (String) session.getAttribute("nickname"); 
 			if (nick != null) { 
 		%>	
@@ -58,8 +48,7 @@
 		
 		if (tipo == "Profesor") { %>
 		<div class="row">
-			<div class="col-sm-6">Institución Deportiva:</div>
-			<div class="col-sm-6">${usuario.institucion}</div>
+		
 			<div class="col-sm-6">Descripcion:</div>
 			<div class="col-sm-6">${usuario.descripcionGeneral}</div>
 			<div class="col-sm-6">Biografia:</div>
