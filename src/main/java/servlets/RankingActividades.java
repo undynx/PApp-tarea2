@@ -34,6 +34,14 @@ public class RankingActividades extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+			
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		Fabrica fabric = Fabrica.getInstancia();
 	    IActividadDeportiva iAD = fabric.getIActividadDeportiva();
 	    List<DtActividad> actividadesOrdenadas;
@@ -45,20 +53,13 @@ public class RankingActividades extends HttpServlet {
 	        request.setAttribute("reqClasesOrdenadas", actividadesOrdenadas); 
 			
 	        // Reenviar la solicitud a la página JSP
-		    request.getRequestDispatcher("/RankingActividades.jsp").forward(request, response);
+		    request.getRequestDispatcher("/ResultadoRankingActividades.jsp").forward(request, response);
 			}
+		
 		}catch(NoSuchElementException e){
 	        // Manejar la excepción aquí, por ejemplo, redirigiendo a una página de error
 	        request.getRequestDispatcher("/Error.jsp").forward(request, response);
 	    	}   
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 
 	}
 //doGet(request, response);
