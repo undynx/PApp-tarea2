@@ -124,12 +124,12 @@ pageEncoding="UTF-8"%>
 									Usuarios
 								</a>
 								<div class="dropdown-menu" aria-labelledby="usuariosDropdown">
-									<a class="dropdown-item" href="ConsultaUsuarios.jsp"
-										>Consulta de Usuarios
+									<a class="dropdown-item" href="ConsultaUsuarios.jsp">
+										Consulta de Usuarios
 									</a>
-									<a class="dropdown-item" href="ModificarUsuario.jsp"
-										>Modificar Usuario</a
-									>
+									<a class="dropdown-item" href="ModificarUsuario.jsp">
+										Modificar Usuario
+									</a>
 								</div>
 							</li>
 							
