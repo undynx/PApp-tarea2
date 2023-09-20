@@ -71,9 +71,14 @@ pageEncoding="UTF-8"%>
 										>Ranking de Clases
 									</a>
 									<% } else { %>
-										<a class="dropdown-item" href="RegistroDictadoClases.jsp"
-											>Registro Dictado de Clases
-										</a>
+										<form 
+											action="ObtenerInstituciones" 
+											method="post"
+										>
+											<button type="submit" class="dropdown-item">
+												Registro Dictado de Clases
+											</button>
+										</form>
 										<a class="dropdown-item" href="EliminarRegistroClase.jsp"
 										>Eliminar Registro de Clase</a
 									>
