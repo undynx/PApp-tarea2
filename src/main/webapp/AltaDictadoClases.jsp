@@ -11,7 +11,9 @@
     <%@ include file="header.jsp" %>
 	
 	
-	<form action="AltaDictadoClase" method="post">
+	<div class="container mt-4">
+		<h3 class="mb-4">Alta de Dictado de Clase</h3>
+		<form action="AltaDictadoClase" method="post">
 		
 		<div style="padding-top: 20px;" class="form-row">
 			<div class="form-group col-md-4">
@@ -42,6 +44,7 @@
 		</div>
 		<button type="submit" class="btn btn-primary">Agregar</button>	  	
 	</form>
+	</div>
     <!-- Incluye el pie de página desde footer.jsp -->
     <%@ include file="footer.jsp" %>
 </body>

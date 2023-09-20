@@ -79,6 +79,7 @@ pageEncoding="UTF-8"%>
 												Registro Dictado de Clases
 											</button>
 										</form>
+										
 										<a class="dropdown-item" href="EliminarRegistroClase.jsp"
 										>Eliminar Registro de Clase</a
 									>
@@ -121,15 +122,21 @@ pageEncoding="UTF-8"%>
 									aria-haspopup="true"
 									aria-expanded="false"
 								>
-									Usuarios
+									Usuario
 								</a>
 								<div class="dropdown-menu" aria-labelledby="usuariosDropdown">
 									<a class="dropdown-item" href="ConsultaUsuarios.jsp">
 										Consulta de Usuarios
 									</a>
-									<a class="dropdown-item" href="ModificarUsuario.jsp">
-										Modificar Usuario
-									</a>
+									
+									<form
+										action="ObtenerUsuario"
+										method="post"
+									>
+										<button type="submit" class="dropdown-item">
+											Modificar Usuario
+										</button>
+									</form>
 								</div>
 							</li>
 							

@@ -23,9 +23,7 @@
 	</div>
 
     <!-- Contenido de la página principal -->
-   <div id="tabla-container" class="container mt-4">
-   <h1>Ranking de Dictado de Clases</h1>
-			
+   <div id="tabla-container" class="container mt-4">			
      <table class="table table-sm table-dark">
   		<thead>
         <tr>
