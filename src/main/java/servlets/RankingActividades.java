@@ -2,8 +2,6 @@ package servlets;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.NoSuchElementException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,7 +51,7 @@ public class RankingActividades extends HttpServlet {
 	        request.setAttribute("reqClasesOrdenadas", actividadesOrdenadas); 
 			
 	        // Reenviar la solicitud a la página JSP
-		    request.getRequestDispatcher("/ResultadoRankingActividades.jsp").forward(request, response);
+		    request.getRequestDispatcher("/RankingActividades.jsp").forward(request, response);
 			}
 		
 		}catch(Exception e){
@@ -62,5 +60,5 @@ public class RankingActividades extends HttpServlet {
 	    	}   
 
 	}
-//doGet(request, response);
+
 }

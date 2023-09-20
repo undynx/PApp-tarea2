@@ -53,7 +53,7 @@ public class RankingDictadoClases extends HttpServlet {
 	        request.setAttribute("reqClasesOrdenadas", claseOrdenadas); 
 			
 	        // Reenviar la solicitud a la página JSP
-		    request.getRequestDispatcher("/ResultadoRankingClases.jsp").forward(request, response);
+		    request.getRequestDispatcher("/RankingClases.jsp").forward(request, response);
 			}
 		
 		}catch(Exception e){

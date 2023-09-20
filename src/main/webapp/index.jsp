@@ -70,6 +70,8 @@ pageEncoding="UTF-8" %>
 			</div>
 		</div>
 
+
+
 		<!-- Incluye el pie de página desde footer.jsp -->
 		<%@ include file="footer.jsp" %>
 	</body>
