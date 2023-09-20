@@ -26,13 +26,12 @@
 
     <!-- Contenido de la página principal -->
        <div class="container mt-5">
-       	  <form action="ConsultaActividadDeportiva" method="post">
-        <label for="Actividad">Actividad:</label>
-        <input type="text" id="unaActividad" name="unaActividad" required>
-        <br><br>
-        <input type="submit" value="Consultar">
-    </form>
-		       
+       		<form action="ConsultaActividadDeportiva" method="post">
+        		<label for="Actividad">Actividad:</label>
+        		<input type="text" id="unaActividad" name="unaActividad" required>
+        		<br><br>
+        		<input type="submit" value="Consultar">
+    		</form>   
        </div>
        
     <!-- Incluye el pie de página desde footer.jsp -->
