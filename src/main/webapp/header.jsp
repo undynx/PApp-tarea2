@@ -67,9 +67,11 @@ pageEncoding="UTF-8"%>
 									<a class="dropdown-item" href="ConsultaDictadoClases.jsp"
 										>Consulta Dictado de Clases</a
 									>
-									<a class="dropdown-item" href="RankingClases.jsp"
-										>Ranking de Clases
-									</a>
+									<form  action="RankingDictadoClases" method="post">
+        								<button type="submit" class="dropdown-item" >
+        									Ranking de Clases
+        								</button>
+    								</form>
 									<% } else { %>
 										<a class="dropdown-item" href="RegistroDictadoClases.jsp"
 											>Registro Dictado de Clases
@@ -100,9 +102,11 @@ pageEncoding="UTF-8"%>
 										>Consulta de Actividades
 									</a>
 								<%if (tipo == "Profesor") { %>
-									<a class="dropdown-item" href="RankingActividades.jsp"
-										>Ranking de Actividades
-									</a>
+								<form action="RankingActividades" method="post">
+							        <button type="submit" class="dropdown-item" >
+							        Ranking de Actividades
+							        </button>
+							    </form>
 								<% } %>
 								</div>
 							</li>
