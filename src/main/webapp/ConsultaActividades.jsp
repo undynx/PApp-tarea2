@@ -28,9 +28,11 @@
 	<%@ page import="datatypes.DtActividad" %>
     <!-- Contenido de la página principal -->
       <div class="container mt-5">
-        <form action="ConsultaActividadDeportiva" method="post">
-            <label for="Actividad">Actividades</label>
-            <select name="unaActividad" class="form-select form-select-lg mb-3">
+       <div class="row justify-content-center">
+       	<div class="col-md-6">
+        <form action="ConsultaActividadDeportiva" method="post" class="form-inline">
+            <label for="Actividad" class="mr-2">Actividades</label>
+            <select name="unaActividad" class="form-control">
                 <%
                     List<DtActividad> actividades = (List<DtActividad>) request.getAttribute("reqNombreActividad");
                     if (actividades != null) {
@@ -42,10 +44,12 @@
                     }
                 %>
             </select>
-
-            <!-- Agrega el botón "Consultar" para enviar el formulario -->
-            <button type="submit" class="btn btn-primary">Consultar</button>
+            <div class="form-group mt-2 mb-2"> 
+                    <input type="submit" class="btn btn-primary btn-block" value="Consultar">
+            </div>
         </form>
+        </div>
+        </div>
     </div>
        
     <!-- Incluye el pie de página desde footer.jsp -->
