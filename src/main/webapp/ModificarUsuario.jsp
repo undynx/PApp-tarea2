@@ -1,3 +1,4 @@
+<%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,16 +11,23 @@
 <body class="body">
  <!-- Incluye el encabezado desde header.jsp -->
  <%@ page import="datatypes.DtUsuario" %>
+ <%@ page import = "java.util.Date" %>
+  <%@ page import = "java.text.DateFormat" %>
+   <%@ page import = "java.text.SimpleDateFormat" %>
     <%@ include file="header.jsp" %>
 
     <!-- Contenido de la página principal -->
     <div class="container mt-4">
         <h3>Modificacion de Usuario</h3>
         <% DtUsuario usuario = (DtUsuario) request.getAttribute("usuarioObtenido"); %>
+        <% DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+           String strDate = dateFormat.format(usuario.getFechaNacimiento());
+        %>
         
         <form
         	action="ModificarUsuario"
         	method="post"
+        	id="form"
         >
         	<input type="hidden" id="campoEditar" name="campoEditar" value="">
         	<table class="table table-sm">
@@ -37,12 +45,14 @@
 			        	<input
 			        		value="<%= usuario.getNombre() %>"
 			        		id="input-nombre"
+			        		name="input-nombre"
 			        		disabled="<%= true %>"
 			        	>
 			        	
 			        	<button
 			        		style="background-color: transparent; border: 0;"
 			        		id="edit-nombre"
+			        		type="button"
 			        		onclick="setEdit('nombre')"
 			        	>
 			        		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
@@ -53,6 +63,7 @@
 			        	<button
 			        		style="background-color: transparent; border: 0; display: none;"
 			        		id="check-nombre"
+			        		type="button"
 			        		onclick="procesar('nombre')"
 			        	>
 			        		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
@@ -67,12 +78,14 @@
 			        	<input
 			        		value="<%= usuario.getApellido() %>"
 			        		id="input-apellido"
+			        		name="input-apellido"
 			        		disabled="<%= true %>"
 			        	>
 			        	
 			        	<button
 			        		style="background-color: transparent; border: 0;"
 			        		id="edit-apellido"
+			        		type="button"
 			        		onclick="setEdit('apellido')"
 			        	>
 			        		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
@@ -84,6 +97,7 @@
 			        	<button
 			        		style="background-color: transparent; border: 0; display: none;"
 			        		id="check-apellido"
+			        		type="button"
 			        		onclick="procesar('apellido')"
 			        	>
 			        		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
@@ -100,14 +114,17 @@
 			        <td class="fw-bold">Fecha de Nacimiento</td>
 			        <td>
 			        	<input
-			        		value="<%= usuario.getFechaNacimiento() %>"
+			        		value="<%= strDate %>"
 			        		id="input-fecha"
+			        		name="input-fecha"
+			        		type="date"
 			        		disabled="<%= true %>"
 			        	>
 			        	
 			        	<button
 			        		style="background-color: transparent; border: 0;"
 			        		id="edit-fecha"
+			        		type="button"
 			        		onclick="setEdit('fecha')"
 			        	>
 			        		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
@@ -118,6 +135,7 @@
 			        	<button
 			        		style="background-color: transparent; border: 0; display: none;"
 			        		id="check-fecha"
+			        		type="button"
 			        		onclick="procesar('fecha')"
 			        	>
 			        		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
@@ -169,9 +187,10 @@
 </script>
 
 <script type="text/javascript">
-function procesar(campo) {
-	document.getElementById("campoEditar").value = campo;
-	document.getElementById("form").submit();
-}
+	function procesar(campo) {
+		console.log(campo);
+		document.getElementById("campoEditar").value = campo;
+		document.getElementById("form").submit();
+	}
 </script>
 </html>
