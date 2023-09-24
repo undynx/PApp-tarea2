@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -14,6 +15,8 @@ import datatypes.DtActividad;
 import datatypes.DtClase;
 import datatypes.DtProfesor;
 import datatypes.DtSocio;
+import datatypes.DtRegistro;
+import logica.Registro;
 import excepciones.UsuarioNoEsProfesorException;
 import interfaces.Fabrica;
 import interfaces.IActividadDeportiva;
@@ -64,13 +67,20 @@ public class ConsultaUsuario extends HttpServlet {
 		        // Ahora puedes usar la variable "nickname" en tu servlet
 		    	if (iUs.esSocio(nickname)) {
 			    	DtSocio dtSoc = iUs.getDtSocio(nickname);
+			    	List<String> listaClases = new ArrayList<>();	    	
+			            for(DtRegistro r: dtSoc.getRegistros()) {
+			            	listaClases.add(r.getClase().getNombre());
+			            }
+			        
 			    	request.setAttribute("usuario", dtSoc);
+			    	request.setAttribute("listaClasesSoc", listaClases);
 			    	 request.getRequestDispatcher("/ConsultaUsuarios.jsp").forward(request, response);
 			    	/*request.setAttribute("esSocio", true);
 			    	request.setAttribute("esProfesor", false);*/
 			    } else {
 			    	DtProfesor dtProf = iUs.getDtProfesor(nickname);
 			    	request.setAttribute("usuario", dtProf);
+			    	request.setAttribute("listaClasesProf", dtProf.getClases());
 			    	request.getRequestDispatcher("/ConsultaUsuarios.jsp").forward(request, response);
 			    	/*request.setAttribute("esSocio", false);
 			    	request.setAttribute("esProfesor", true);*/
