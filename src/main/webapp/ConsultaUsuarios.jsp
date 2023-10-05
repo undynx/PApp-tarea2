@@ -53,7 +53,7 @@
 		if (tipo == "Profesor") { %>
 		<div class="row">
 			<div class="col-sm-6">Institución:</div>
-			<div class="col-sm-6">${usuario.institucion.getNombreInstitucion()}</div>
+			<div class="col-sm-6"><%session.getAttribute("nombreIntitusion"); %></div>
 			<div class="col-sm-6">Descripcion:</div>
 			<div class="col-sm-6">${usuario.descripcionGeneral}</div>
 			<div class="col-sm-6">Biografia:</div>
@@ -65,8 +65,10 @@
 				Noté intentando mostrar las actividades deportivas asociadas a la DtClase, que no tenemos 
 				actividades deportivas guardadas en DtClase (sí en Clase) entonces opté por fingir demencia respecto a ese requisito-->
 			<%
-	            List<DtClase> clases = (List<DtClase>) session.getAttribute("listaClasesProf");
-	            for (DtClase clase : clases) {
+	      
+			List<DtClase> clases = (List<DtClase>) session.getAttribute("listaClasesProf");
+			  if(clases !=null){        
+					for (DtClase clase : clases) {
 			%>
 					<div class="col-sm-3"><%= clase.getNombre() %></div>
 					<div class="col-sm-3">
@@ -77,6 +79,7 @@
 				    </div>
 			<%
 	            }
+			  }
 			%>	    
 			<!-- ------------------------------------------------------------------------------------------- -->
 			
@@ -90,7 +93,7 @@
 				this.urlClase = urlClase;
 				this.fechaRegistro = fechaRegistro;
 		     -->
-		     <!-- Esta forma la robé de no me acuerdo cuál caso de uso de alguno de ustedes 
+		     <!-- Esta forma la robé de no me acuerdo cuál caso de uso de alguno de ustedes  -->
 		     <div class="container mt-5">
 		    	<h1>Clases Asociadas</h1>
 		    	<table class="table table-sm table-dark">
@@ -102,8 +105,9 @@
 				    </thead>
 				    <tbody>
 				        <%
-				            /*List<DtClase> clases2 = (List<DtClase>) session.getAttribute("listaClasesProf");
-				            for (DtClase clase : clases2) {
+				        List<DtClase> clases2 = (List<DtClase>) session.getAttribute("listaClasesProf");
+				        if(clases2 !=null){ 	
+						for (DtClase clase : clases2) {
 				        %>
 				        <tr>
 				            <td>
@@ -115,7 +119,8 @@
 				            <td><%= clase.getUrl() %></td>
 				        </tr>
 				        <%
-				            }*/
+				            }
+				        }
 				        %>
 				    </tbody>
 				</table>
@@ -131,9 +136,14 @@
 			<div class="col-sm-6">Clases a las cuales está registrado:</div>
 			<!-- De esta forma se me ocurrió para mostrarlo lindo con bootstrap, pero no se si va a andar-->
 			<%
-	            List<String> clasesS = (List<String>) session.getAttribute("listaClasesSoc");
-	            for (String clase : clasesS) {
-			%>
+	        List<String> clasesS = (List<String>) session.getAttribute("listaClasesSoc");
+			System.out.println("estoy aqui");
+			if(clasesS !=null){  
+    	
+			for (String clase : clasesS) {
+				System.out.println(clase);
+				String unacosa=clase;
+				%>
 					<div class="col-sm-3"><%= clase %></div>
 					<div class="col-sm-3">
 						<form action="ConsultaDictadoClases" method="post">
@@ -143,6 +153,7 @@
 				    </div>
 			<%
 	            }
+			}
 			%>
 				    
 			<!-- ------------------------------------------------------------------------------------------- -->
@@ -159,7 +170,7 @@
 				Funcion de DtSocio que podria ser util:
 					List<DtRegistro> getRegistros();
 			-->
-		>
+		
 		<% } %>
 		</div>
 							

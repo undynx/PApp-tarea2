@@ -42,7 +42,7 @@ public class ConsultaUsuario extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -75,13 +75,29 @@ public class ConsultaUsuario extends HttpServlet {
 			    	request.setAttribute("usuario", dtSoc);
 			    	request.setAttribute("listaClasesSoc", listaClases);
 			    	 request.getRequestDispatcher("/ConsultaUsuarios.jsp").forward(request, response);
-			    	/*request.setAttribute("esSocio", true);
+			    		
+			    	 for(String r: listaClases) {
+			            	System.out.println(r);
+				    		}
+			    	 
+			    	 /*request.setAttribute("esSocio", true);
+			    	 * 
 			    	request.setAttribute("esProfesor", false);*/
 			    } else {
 			    	DtProfesor dtProf = iUs.getDtProfesor(nickname);
+			    	String intitusion = dtProf.getNombreInstitucion();
+			    	List<DtClase> clasercias = dtProf.getClases();
+			    	
+			    
+			    	
 			    	request.setAttribute("usuario", dtProf);
-			    	request.setAttribute("listaClasesProf", dtProf.getClases());
+			    	
+			    	request.setAttribute("listaClasesProf", clasercias);
+			    	
+			    	request.setAttribute("nombreIntitusion", intitusion);
 			    	request.getRequestDispatcher("/ConsultaUsuarios.jsp").forward(request, response);
+			    	/*request.setAttribute("esSocio", false);
+			    	request.setAttrib
 			    	/*request.setAttribute("esSocio", false);
 			    	request.setAttribute("esProfesor", true);*/
 			    }
