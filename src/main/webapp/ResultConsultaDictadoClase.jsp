@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +44,22 @@
 		        <td>${setCla.fechaRegistro}</td>
 		    </tr>
 		</table>
-	
+		
+		<h1>Socios asociados a la clase ${setCla.nombre}</h1>
+		<table class="table table-sm table-dark">
+		    <thead>
+		        <tr>
+		            <th>Nombre del Socio</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <c:forEach var="socio" items="${listaSocios}">
+		            <tr>
+		                <td>${socio}</td>
+		            </tr>
+		        </c:forEach>
+		    </tbody>
+		</table>	
     </div>
     <!-- Incluye el pie de página desde footer.jsp -->
     <%@ include file="footer.jsp" %>
