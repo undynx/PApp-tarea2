@@ -50,10 +50,11 @@
 		
 		<% String tipo = (String) session.getAttribute("tipo");
 		
-		if (tipo == "Profesor") { %>
+		if ("Profesor".equals(tipo)) { %>
+
 		<div class="row">
 			<div class="col-sm-6">Institución:</div>
-			<div class="col-sm-6"><%session.getAttribute("nombreIntitusion"); %></div>
+			<div class="col-sm-6"><%= request.getAttribute("nombreIntitusion") %></div>
 			<div class="col-sm-6">Descripcion:</div>
 			<div class="col-sm-6">${usuario.descripcionGeneral}</div>
 			<div class="col-sm-6">Biografia:</div>
@@ -66,7 +67,7 @@
 				actividades deportivas guardadas en DtClase (sí en Clase) entonces opté por fingir demencia respecto a ese requisito-->
 			<%
 	      
-			List<DtClase> clases = (List<DtClase>) session.getAttribute("listaClasesProf");
+			List<DtClase> clases = (List<DtClase>) request.getAttribute("listaClasesProf");
 			  if(clases !=null){        
 					for (DtClase clase : clases) {
 			%>
@@ -105,7 +106,7 @@
 				    </thead>
 				    <tbody>
 				        <%
-				        List<DtClase> clases2 = (List<DtClase>) session.getAttribute("listaClasesProf");
+				        List<DtClase> clases2 = (List<DtClase>) request.getAttribute("listaClasesProf");
 				        if(clases2 !=null){ 	
 						for (DtClase clase : clases2) {
 				        %>
@@ -136,7 +137,7 @@
 			<div class="col-sm-6">Clases a las cuales está registrado:</div>
 			<!-- De esta forma se me ocurrió para mostrarlo lindo con bootstrap, pero no se si va a andar-->
 			<%
-	        List<String> clasesS = (List<String>) session.getAttribute("listaClasesSoc");
+	        List<String> clasesS = (List<String>) request.getAttribute("listaClasesSoc");
 			System.out.println("estoy aqui");
 			if(clasesS !=null){  
     	
