@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import javax.servlet.ServletException;
@@ -9,20 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import datatypes.DtInstitucion;
 import interfaces.Fabrica;
-import interfaces.IUsuario;
+import interfaces.IInstitucionDeportiva;
 
 /**
- * Servlet implementation class InicioSesion
+ * Servlet implementation class ObtenerInstitucion
  */
-@WebServlet("/InicioSesion")
-public class InicioSesion extends HttpServlet {
+@WebServlet("/ObtenerInstituciones")
+public class ObtenerInstituciones extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InicioSesion() {
+    public ObtenerInstituciones() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,7 +33,6 @@ public class InicioSesion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 	}
 
 	/**
@@ -39,35 +40,14 @@ public class InicioSesion extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
-		
-		Fabrica f = Fabrica.getInstancia();
-		IUsuario iUsuario = f.getIUsuario();
-		String nicknameUser = request.getParameter("unNickname");
-		String contrasenaUser = request.getParameter("unaPassword");
+		doGet(request, response);
 		
 		try {
-			if(iUsuario.existeUsuario(nicknameUser)) {
-				if(iUsuario.esContrasena(nicknameUser, contrasenaUser)) {
-					boolean esSocio = iUsuario.esSocio(nicknameUser);
-					String tipo;
-					
-					if(!esSocio) {
-						tipo = "Profesor";
-					} else {
-						tipo = "Socio";
-					}
-					
-					request.getSession().setAttribute("nickname", nicknameUser);
-					request.getSession().setAttribute("tipo", tipo);
-					request.getRequestDispatcher("/index.jsp").forward(request, response);
-					
-				} else {
-					throw new NoSuchElementException("No es la contraseña");
-				}
-			} else {
-				throw new NoSuchElementException("No existe usuario");
-			}
+			Fabrica f = Fabrica.getInstancia();
+			IInstitucionDeportiva iInstitucion = f.getIInstitucionDeportiva();
+			List<DtInstitucion> dtInstitucion = iInstitucion.getInstituciones();
+			request.setAttribute("reqInstituciones", dtInstitucion);
+			request.getRequestDispatcher("/RegistroDictadoClases.jsp").forward(request, response);
 		} catch (NoSuchElementException nsee) {
 			request.getRequestDispatcher("/Error.jsp").forward(request, response);
 		}

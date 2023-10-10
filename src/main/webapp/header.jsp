@@ -60,7 +60,7 @@ pageEncoding="UTF-8"%>
 								<div class="dropdown-menu" aria-labelledby="clasesDropdown">
 								<% String tipo = (String) session.getAttribute("tipo");
 								
-									if (tipo == "Profesor") { %>
+									if (tipo.equals("Profesor")) { %>
 									<a class="dropdown-item" href="AltaDictadoClases.jsp"
 										>Alta Dictado de Clases
 									</a>
@@ -71,9 +71,15 @@ pageEncoding="UTF-8"%>
 										>Ranking de Clases
 									</a>
 									<% } else { %>
-										<a class="dropdown-item" href="RegistroDictadoClases.jsp"
-											>Registro Dictado de Clases
-										</a>
+										<form 
+											action="ObtenerInstituciones" 
+											method="post"
+										>
+											<button type="submit" class="dropdown-item">
+												Registro Dictado de Clases
+											</button>
+										</form>
+										
 										<a class="dropdown-item" href="EliminarRegistroClase.jsp"
 										>Eliminar Registro de Clase</a
 									>
@@ -99,7 +105,7 @@ pageEncoding="UTF-8"%>
 								<a class="dropdown-item" href="ConsultaActividades.jsp"
 										>Consulta de Actividades
 									</a>
-								<%if (tipo == "Profesor") { %>
+								<%if (tipo.equals("Profesor")) { %>
 									<a class="dropdown-item" href="RankingActividades.jsp"
 										>Ranking de Actividades
 									</a>
@@ -116,7 +122,7 @@ pageEncoding="UTF-8"%>
 									aria-haspopup="true"
 									aria-expanded="false"
 								>
-									Usuarios
+									Usuario
 								</a>
 								<div class="dropdown-menu" aria-labelledby="usuariosDropdown">
 									<form 
@@ -127,9 +133,15 @@ pageEncoding="UTF-8"%>
 											Consulta de Usuarios
 										</button>
 									</form>
-									<a class="dropdown-item" href="ModificarUsuario.jsp"
-										>Modificar Usuario</a
+									
+									<form
+										action="ObtenerUsuario"
+										method="post"
 									>
+										<button type="submit" class="dropdown-item">
+											Modificar Usuario
+										</button>
+									</form>
 								</div>
 							</li>
 							

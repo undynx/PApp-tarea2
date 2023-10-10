@@ -11,7 +11,7 @@
 <!-- Incluye el encabezado desde header.jsp -->
 	<%@ include file="header.jsp" %>
 	 <div class="container mt-5">
-	<h1>No se encontro el objeto o no existe</h1>
+	<h1>Ya existe un registro para el usuario ${nombreUsuario} en la clase ${nombreClase}.</h1>
 	</div>
 <!-- Incluye el pie de página desde footer.jsp -->
 	<%@ include file="footer.jsp" %>

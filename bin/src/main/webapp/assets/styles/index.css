@@ -7,8 +7,6 @@
 .user-icon {
   position: absolute;
   right: 10px;
-  top: 15px;
-  list-style-type: none;
 }
 
 .footer {
@@ -47,24 +45,4 @@
   color: #9E9E9E;
   width: 35px;
   height: 35px;
-}
-
-.navBar {
-	width: 350px;
-	left: -170% !important;
-}
-
-.logout-btn {
-	border: none;
-	background: none;
-}
-
-.logout-svg {
-	height: auto;
-	width: 30px;
-}
-
-.clases-container {
-	display: flex;
-	background-color: red;
 }
