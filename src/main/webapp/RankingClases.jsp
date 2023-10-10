@@ -15,12 +15,15 @@
 <!-- Contenido de la página principal -->
 <div class="container mt-4">
     <h1>Ranking de Dictado de Clases</h1>
+
+    <form id="rankingForm" action="RankingDictadoClases" method="post">
+        <input type="submit" value="Ver Ranking">
+    </form>
+
 	</div>
 
     <!-- Contenido de la página principal -->
-   <div id="tabla-container" class="container mt-4">
- 
-			
+   <div id="tabla-container" class="container mt-4">			
      <table class="table table-sm table-dark">
   		<thead>
         <tr>
@@ -53,15 +56,4 @@
     <!-- Incluye el pie de página desde footer.jsp -->
     <%@ include file="footer.jsp" %>
 </body>
-
-<!--codigo javascript para habilitar la tabla con los datos una vez dado click enel boton-->
-<!--
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('rankingForm').addEventListener('submit', function(event) {
-    // Muestra la tabla y actualiza su contenido
-    document.getElementById('tabla-container').style.display = 'block';
-   	document.querySelector('table').innerHTML = xhr.responseText;
-});
-</script>-->
 </html>

@@ -48,8 +48,14 @@
         <version>5.4.21.Final</version>
     </dependency> 
      
-<!--============Nuevas dependencias para la Tarea 2=====================!-->	  
-	  
+<!--============Nuevas dependencias para la Tarea 2=====================!-->
+
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
+	 
     <dependency>
       <groupId>org.apache.tomcat</groupId>
       <artifactId>tomcat-annotations-api</artifactId>
