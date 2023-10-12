@@ -45,21 +45,24 @@
 		    </tr>
 		</table>
 		
-		<h1>Socios asociados a la clase ${setCla.nombre}</h1>
-		<table class="table table-sm table-dark">
-		    <thead>
-		        <tr>
-		            <th>Nombre del Socio</th>
-		        </tr>
-		    </thead>
-		    <tbody>
-		        <c:forEach var="socio" items="${listaSocios}">
-		            <tr>
-		                <td>${socio}</td>
-		            </tr>
-		        </c:forEach>
-		    </tbody>
-		</table>	
+		<% String tipo=(String) session.getAttribute("tipo"); 
+        if ("Profesor".equals(tipo)) { %>
+			<h1>Socios asociados a la clase ${setCla.nombre}</h1>
+			<table class="table table-sm table-dark">
+			    <thead>
+			        <tr>
+			            <th>Nombre del Socio</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <c:forEach var="socio" items="${listaSocios}">
+			            <tr>
+			                <td>${socio}</td>
+			            </tr>
+			        </c:forEach>
+			    </tbody>
+			</table>
+			<% } %>	
     </div>
     <!-- Incluye el pie de página desde footer.jsp -->
     <%@ include file="footer.jsp" %>
