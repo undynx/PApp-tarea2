@@ -67,17 +67,19 @@ public class ConsultaUsuario extends HttpServlet {
 		        // Ahora puedes usar la variable "nickname" en tu servlet
 		    	if (iUs.esSocio(nickname)) {
 			    	DtSocio dtSoc = iUs.getDtSocio(nickname);
-			    	List<String> listaClases = new ArrayList<>();	    	
-			            for(DtRegistro r: dtSoc.getRegistros()) {
-			            	listaClases.add(r.getClase().getNombre());
+			    	List<DtClase> listaClases = new ArrayList<>();
+			    		List<DtRegistro> listaRegistros = (List<DtRegistro>) dtSoc.getRegistros();
+			            for(DtRegistro r: listaRegistros) {
+			            	listaClases.add(r.getClase());
+			            	System.out.println(r.getClase().getNombre());
 			            }
 			        
 			    	request.setAttribute("usuario", dtSoc);
 			    	request.setAttribute("listaClasesSoc", listaClases);
-			    	 request.getRequestDispatcher("/ConsultaUsuarios.jsp").forward(request, response);
+			    	request.getRequestDispatcher("/ConsultaUsuarios.jsp").forward(request, response);
 			    		
-			    	 for(String r: listaClases) {
-			            	System.out.println(r);
+			    	for(DtClase r: listaClases) {
+			            	System.out.println(r.getNombre());
 				    		}
 			    	 
 			    	 /*request.setAttribute("esSocio", true);
