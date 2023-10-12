@@ -36,7 +36,22 @@ public class ConsultaActividadDeportiva extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+
+		Fabrica fabric = Fabrica.getInstancia();
+		IActividadDeportiva iAD = fabric.getIActividadDeportiva(); 
+		List<DtActividad> listActividades = iAD.getRankingActividades();
+		
+		try {//llenar el combobox
+				// Guardar la lista de DtActividades en reqNombreActividades
+			    request.setAttribute("reqNombreActividad", listActividades);
+		    	// Reenviar la solicitud a la página JSP
+			    request.getRequestDispatcher("/ConsultaActividades.jsp").forward(request, response);
+			   
+				}catch (Exception e) {
+			        // Manejar la excepción aquí, por ejemplo, redirigiendo a una página de error
+			        request.getRequestDispatcher("/Error.jsp").forward(request, response);
+				}
+
 	}
 
 	/**

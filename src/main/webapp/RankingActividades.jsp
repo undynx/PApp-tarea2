@@ -13,9 +13,11 @@
 <div class="container mt-4">
     <h1>Ranking de Actividades</h1>
 
+
     <form id="rankingForm" action="RankingActividades" method="post">
         <input type="submit" value="Ver Ranking">
     </form>
+
 
 </div>
 
@@ -53,16 +55,7 @@
     <%@ include file="footer.jsp" %>
 </body>
 
-<!--codigo javascript para habilitar la tabla con los datos una vez dado click enel boton-->
 
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('rankingForm').addEventListener('submit', function(event) {
-    // Muestra la tabla y actualiza su contenido
-    document.getElementById('tabla-container').style.display = 'block';
-   	document.querySelector('table').innerHTML = xhr.responseText;
-});
-</script>
 </html>
 
 <!-- Agrega el bloque de código JavaScript -->

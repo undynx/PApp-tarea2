@@ -38,8 +38,7 @@ public class InicioSesion extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
+
 		
 		Fabrica f = Fabrica.getInstancia();
 		IUsuario iUsuario = f.getIUsuario();
@@ -60,8 +59,12 @@ public class InicioSesion extends HttpServlet {
 					
 					request.getSession().setAttribute("nickname", nicknameUser);
 					request.getSession().setAttribute("tipo", tipo);
+
 					request.getRequestDispatcher("/index.jsp").forward(request, response);
 					
+
+					
+
 				} else {
 					throw new NoSuchElementException("No es la contraseña");
 				}

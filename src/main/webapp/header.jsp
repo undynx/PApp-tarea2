@@ -60,16 +60,22 @@ pageEncoding="UTF-8"%>
 								<div class="dropdown-menu" aria-labelledby="clasesDropdown">
 								<% String tipo = (String) session.getAttribute("tipo");
 								
+
 									if (tipo.equals("Profesor")) { %>
+
 									<a class="dropdown-item" href="AltaDictadoClases.jsp"
 										>Alta Dictado de Clases
 									</a>
 									<a class="dropdown-item" href="ConsultaDictadoClases.jsp"
 										>Consulta Dictado de Clases</a
 									>
-									<a class="dropdown-item" href="RankingClases.jsp"
-										>Ranking de Clases
-									</a>
+
+									<form  action="RankingDictadoClases" method="post">
+        								<button type="submit" class="dropdown-item" >
+        									Ranking de Clases
+        								</button>
+    								</form>
+
 									<% } else { %>
 										<form 
 											action="ObtenerInstituciones" 
@@ -102,13 +108,20 @@ pageEncoding="UTF-8"%>
 									class="dropdown-menu"
 									aria-labelledby="actividadesDropdown"
 								>
-								<a class="dropdown-item" href="ConsultaActividades.jsp"
-										>Consulta de Actividades
-									</a>
+
+								<form action="ConsultaActividadDeportiva" method="get">
+											<button type="submit" class="dropdown-item">
+												Consulta de Actividades
+											</button>
+								</form>
 								<%if (tipo.equals("Profesor")) { %>
-									<a class="dropdown-item" href="RankingActividades.jsp"
-										>Ranking de Actividades
-									</a>
+
+								<form action="RankingActividades" method="post">
+							        <button type="submit" class="dropdown-item" >
+							        Ranking de Actividades
+							        </button>
+							    </form>
+
 								<% } %>
 								</div>
 							</li>
@@ -142,6 +155,7 @@ pageEncoding="UTF-8"%>
 											Modificar Usuario
 										</button>
 									</form>
+
 								</div>
 							</li>
 							
