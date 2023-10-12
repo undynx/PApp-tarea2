@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,17 +10,14 @@
 <%@ include file="header.jsp" %>
 <%@ page import="java.util.List" %>
 <%@ page import="datatypes.DtActividad" %>
-<!-- Contenido de la p�gina principal -->
+<!-- Contenido de la pï¿½gina principal -->
 <div class="container mt-4">
     <h1>Ranking de Actividades</h1>
 
-    <form id="rankingForm" action="RankingActividades" method="post">
-        <input type="submit" value="Ver Ranking">
-    </form>
-
+   
 </div>
 
-    <!-- Contenido de la p�gina principal -->
+    <!-- Contenido de la pï¿½gina principal -->
    <div id="tabla-container" class="container mt-4">
             
      <table class="table table-sm table-dark">
@@ -27,7 +25,7 @@
         <tr>
             <th>Cantidad Inscriptos</th>
             <th>Nombre</th>
-            <th>Descripci�n</th>        
+            <th>Descripción</th>        
             <th>Costo</th>
         </tr>
         </thead>
@@ -49,7 +47,7 @@
     </table>
 </div>
 
-    <!-- Incluye el pie de p�gina desde footer.jsp -->
+    <!-- Incluye el pie de pï¿½gina desde footer.jsp -->
     <%@ include file="footer.jsp" %>
 </body>
 </html>
