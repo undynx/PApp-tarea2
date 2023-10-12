@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import datatypes.DtActividad;
 import datatypes.DtClase;
+import excepciones.ExisteActividadDepException;
 import interfaces.Fabrica;
+import interfaces.IActividadDeportiva;
 import interfaces.IClase;
 import interfaces.IInstitucionDeportiva;
 
@@ -41,27 +44,28 @@ public class ConsultaDictadoClase extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+			
 		Fabrica factory = Fabrica.getInstancia();
-	    IInstitucionDeportiva iInstitucion = factory.getIInstitucionDeportiva();
 	    IClase iclase = factory.getIClase();
 	    
-	    String nomIns = request.getParameter("instituto");
-	    String nomAct = request.getParameter("actividad");
 	    String nomCla = request.getParameter("clase");
 	   
 	    try {
-	    	if(iInstitucion.existeClaseDeActividad(nomIns, nomAct, nomCla)) {   	 
-				DtClase clase = iInstitucion.obtenerDtClase(nomIns, nomAct, nomCla);
-				List<String> listaSocios = iclase.obtenerSociosDeUnaClase(nomCla);
-		    	request.setAttribute("setCla",clase);
-		    	request.setAttribute("listaSocios",listaSocios);
-			    request.getRequestDispatcher("/ResultConsultaDictadoClase.jsp").forward(request, response);
-	    	}else{
-	    		throw new Exception("Error: No existe clase");
-	    	}
-	    }catch (Exception e) {
-	    	request.getRequestDispatcher("/Error.jsp").forward(request, response);
+          
+	    	if(iclase.existeClase(nomCla)) {   	 
+	    	DtClase clase = iclase.getDtClase(nomCla);
+	    	List<String> listaSocios = iclase.obtenerSociosDeUnaClase(nomCla);
+	    	request.setAttribute("setCla",clase);
+	    	request.setAttribute("listaSocios",listaSocios);
+		    request.getRequestDispatcher("/ResultConsultaDictadoClase.jsp").forward(request, response);
+	    }else{
+	    	
+	    	throw new Exception("Error: No existe clase");
+	    }
+	    
+	}catch (Exception e) {
+    	request.getRequestDispatcher("/Error.jsp").forward(request, response);
+    	
     	}
 	}
 }
