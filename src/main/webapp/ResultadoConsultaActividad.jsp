@@ -3,6 +3,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="./assets/styles/index.css" />
     <title>Resultado de la Consulta</title>
 </head>
 <body data-bs-theme="dark">
@@ -51,29 +53,39 @@
     <div class="container mt-5">
     	<h1>Clases Asociadas</h1>
     	<table class="table table-sm table-dark">
-    <thead>
-        <tr>
-            <th>Nombre de Clase</th>
-            <th>URL</th>
-        </tr>
-    </thead>
     <tbody>
+    <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;" class="mt-2"> 
         <%
             List<DtClase> clases = (List<DtClase>) request.getAttribute("reqClases");
             for (DtClase clase : clases) {
         %>
-        <tr>
-            <td>
-            <!-- pongo como link el nombre de la clase dirigido a consutlta dicatdo clase pasando el nonbre como parametro para utilizarlo despues -->
-                <a href="ConsultaDictadoClases.jsp?nombreClase=<%= clase.getNombre() %>">
-                    <%= clase.getNombre() %>
-                </a>
-            </td>
-            <td><%= clase.getUrl() %></td>
-        </tr>
+        
+                  <div class="card m-2" style="width: 250px;" >
+			<div class="card-body" style="display: flex; flex-direction: column; justify-content: space-between;">
+				<h5 class="card-title"><%= clase.getNombre() %></h5>
+				<p class="card-text">
+					<span style="font-weight: 600;">Actividad Deportiva:</span> <%= clase.getActividadDeportiva().getNombre() %>
+					<br>
+					<span style="font-weight: 600;">Hora de inicio:</span> <%= clase.getHoraInicio() %>
+					<br>
+					<span style="font-weight: 600;">URL:</span> <%= clase.getUrl() %>
+				</p>
+			
+			   <form
+				   	action="ConsultaDictadoClase"
+					method="post"
+			   >
+			   		<input type="hidden" id="clase" name="clase" value="<%= clase.getNombre() %>">
+               		<input type="submit" value="Consultar Clase" class="btn btn-primary">
+			   </form>
+			   
+			</div>
+			</div>
+
         <%
             }
         %>
+       </div>
     </tbody>
 </table>
 
