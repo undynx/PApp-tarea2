@@ -104,13 +104,18 @@ pageEncoding="UTF-8"%>
 									class="dropdown-menu"
 									aria-labelledby="actividadesDropdown"
 								>
-								<a class="dropdown-item" href="ConsultaActividades.jsp"
-										>Consulta de Actividades
-									</a>
+								<form  action="ConsultaActividadDeportiva" method="get">
+        								<button type="submit" class="dropdown-item" >
+        									Consulta de Actividades
+        								</button>
+    								</form>
+    								
 								<%if (tipo.equals("Profesor")) { %>
-									<a class="dropdown-item" href="RankingActividades.jsp"
-										>Ranking de Actividades
-									</a>
+									<form  action="RankingActividades" method="post">
+        								<button type="submit" class="dropdown-item" >
+        									Ranking de Actividades
+        								</button>
+    								</form>
 								<% } %>
 								</div>
 							</li>
