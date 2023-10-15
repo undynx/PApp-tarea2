@@ -81,7 +81,7 @@ public class AltaDictadoClase extends HttpServlet {
 					//String nombre = profe.getNombre();
 					try {
 						System.out.println("prueba3 bien");
-						iClase.altaDictadoClase(nombreClase, actividad, fechaRegistro, nickname, horaInicio, url, null);
+						iClase.altaDictadoClase(nombreClase, actividad, fechaRegistro, nickname, horaInicio, url, new Date());
 				        request.getRequestDispatcher("/AltaDictadoClases.jsp").forward(request, response);
 					}catch(ClaseRepetidaException e) {
 						System.out.println("prueba3 error");
