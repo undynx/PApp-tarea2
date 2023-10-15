@@ -54,6 +54,7 @@ public class AltaDictadoClase extends HttpServlet {
 		IUsuario iUsuario = f.getIUsuario();
 		String nombreInstitucion = request.getParameter("nombreInstitucion");
 		System.out.println(nombreInstitucion);
+		
 		DtInstitucion institucion =iInstitucion.getDtInstitucion(nombreInstitucion);
 		if (institucion == null)
 	        request.getRequestDispatcher("/Error.jsp").forward(request, response);
