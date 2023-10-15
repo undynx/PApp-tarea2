@@ -14,7 +14,7 @@
 	</dependency>
 	
 <!-- dada la info de PApp el comando para instalar, caso cree una carpeta compartida entre windows y wsl  me situe ahi y tire el comando asi:-->
-<!-- mvn install:install-file -Dfile=C:tarea1.jar -DgroupId=PApp -DartifactId=PApp -Dversion=0.0.1-SNAPSHOT -Dpackaging=jar -->
+<!-- mvn install:install-file -Dfile=C:\Users\pc\git\PApp-tarea2\tarea1.jar -DgroupId=PApp -DartifactId=PApp -Dversion=0.0.1-SNAPSHOT -Dpackaging=jar -->
 <!--==========================================================!-->	
 	<dependency>
 	    <groupId>javax.persistence</groupId>
