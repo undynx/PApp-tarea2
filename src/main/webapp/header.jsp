@@ -204,7 +204,7 @@ pageEncoding="UTF-8"%>
 												<div class="mb-3">
 													<label class="form-label">Contraseña</label>
 													<input
-														type="text"
+														type="password"
 														class="form-control"
 														id="unaPassword"
 														name="unaPassword"

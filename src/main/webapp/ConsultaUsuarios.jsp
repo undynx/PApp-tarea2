@@ -4,6 +4,7 @@
 
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="./assets/styles/index.css" />
     <title>Consulta usuario</title>
   </head>
@@ -75,10 +76,13 @@ Esta forma es la que he logrado para que ande. Con la tabla no lo logro, pero ca
 -->
 
         <div class="container" aria-labelledby="datosEspecificos">
+         <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;" class="mt-2">
           <% List<DtClase> clases = (List<DtClase>) request.getAttribute("listaClasesProf");
           if (clases.size() == 0) { %>
 		<div>No existen clases para esta actividad</div>
+		
 	   <% } else { 
+		   
           for (DtClase clase : clases) {
           %>
           
@@ -122,6 +126,7 @@ Esta forma es la que he logrado para que ande. Con la tabla no lo logro, pero ca
 		method="post"
 	  >	
 		<input type="hidden" id="claseSeleccionada" name="claseSeleccionada" value="">
+		
 		<div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;" class="mt-2">
 			<% List<DtClase> clasesS = (List<DtClase>) request.getAttribute("listaClasesSoc"); %>
 			<% if (clasesS.size() == 0) { %>
